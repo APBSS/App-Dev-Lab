@@ -1,0 +1,23 @@
+body{
+    background-color: aliceblue;
+    margin: 0px;
+}
+.title{
+    font-size: 25px;
+    color: cornflowerblue;
+}
+.loginnav ul{
+    background-color:black;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    list-style: none;
+    text-decoration: none;
+    padding: 18px;
+    color: white;
+    font-size: 20px;
+}
+.loginnav li:hover{
+    cursor: pointer;
+    color: lightcyan;
+}
