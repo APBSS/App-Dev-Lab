@@ -1,9 +1,10 @@
 import React from 'react'
-import '../components/Login.css'
-export default function Login() {
+import '../components/Navbar.css'
+
+export default function Navbar() {
   return (
-    <div className='login'>
-        <nav className='loginnav'>
+    <div className='navbar'>
+        <nav className='nav'>
           <ul>
             <li className='title'>GYM</li>
             <li>Home</li>
