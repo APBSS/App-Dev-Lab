@@ -1,11 +1,12 @@
 import React from 'react';
 import './SignIn.css'; // Import the CSS file
+import signimg from '../images/1.jpg'
 
 const SignIn = () => {
   return (
-    <div className="container1">
+    <div className="signin">
       <form>
-        <h2 className='signintitle'>Sign In</h2>
+        <h2 className='signintitle' style={{marginBottom:30}}>Sign In</h2>
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -22,14 +23,13 @@ const SignIn = () => {
           placeholder="Enter your password"
           required
         />
-        <button type="submit" className='button'>Sign In</button>
+        <p className='signinbutton'>Sign In</p>
         <div className="signup-link">
-          <p>Already registered? <a href="#register">Register here</a></p>
+          <p>Don't have an account? <a href="#register" >Register</a></p>
         </div>
+        
       </form>
-      <div className="image-container">
-        <img src="https://via.placeholder.com/600x800" alt="Gym" />
-      </div>
+      
     </div>
   );
 };
