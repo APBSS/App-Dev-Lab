@@ -39,6 +39,7 @@ body{
   background-color: #ff5722;
   color: #363434;
   font-weight: bold;
+  text-decoration: none;
 }
 .button:hover{
   cursor: pointer;
