@@ -1,13 +1,20 @@
 import React from 'react';
-import './SignIn.css'; // Import the CSS file
-import signimg from '../images/1.jpg'
+import './Register.css';
 import { Link } from 'react-router-dom';
 
-const SignIn = () => {
+const Register = () => {
   return (
-    <div className="signin">
+    <div className="register">
       <form>
-        <h2 className='signintitle' style={{marginBottom:30}}>Sign In</h2>
+        <h2 className='signintitle' style={{marginBottom:30}}>Register</h2>
+        <label>Username:</label>
+        <input
+          type="username"
+          id="username"
+          name="username"
+          placeholder="Enter your username"
+          required
+        />
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -24,9 +31,9 @@ const SignIn = () => {
           placeholder="Enter your password"
           required
         />
-        <p className='signinbutton'>Sign In</p>
+        <p className='signinbutton'>Register</p>
         <div className="signup-link">
-          <p>Don't have an account? <Link to="/Register"><a href="#register" >Register</a></Link></p>
+          <p>Already have an account? <Link to="/SignIn"><a href="#register" >Sign In</a></Link></p>
         </div>
         
       </form>
@@ -35,4 +42,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Register;
