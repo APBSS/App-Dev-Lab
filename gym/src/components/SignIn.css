@@ -12,7 +12,7 @@
   }
   
   form {
-    background-color: rgba(255, 255, 255, 0.6); /* White with 80% opacity */
+    background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     padding: 2rem;
     border-radius: 0.5rem;
@@ -41,6 +41,7 @@
     border: 1px solid #ccc;
     border-radius: 0.25rem;
     margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
   }
   .signup-link {
     text-align: center;
