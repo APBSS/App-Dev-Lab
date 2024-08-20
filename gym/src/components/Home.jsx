@@ -8,8 +8,8 @@ const Home = () => {
     <div className="container" id='home'>
       <Navbar />
       <main>
-        <h2 style={{color:"white"}}>Welcome to Our Gym</h2>
-        <p style={{color:"white"}}>Your fitness journey starts here. Join us to achieve your health and wellness goals with our top-notch facilities and expert trainers.</p>
+        <h2 style={{color:"white"}}>Experience the Future of<span style={{color:"#ff5722",fontSize:"3rem"}}> Gym </span>Efficiency</h2>
+        <p style={{color:"white"}}>Your fitness journey starts here. Bringing people together through a gym management system that unites fitness and efficiency</p>
         <Link className='button' to="/SignIn">Get Started</Link>
       </main>
       <footer>

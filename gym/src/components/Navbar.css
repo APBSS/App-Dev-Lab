@@ -32,7 +32,7 @@ body{
     font-style: normal;
     background-color: #363434;
 }
-.button{
+/*.button{
   padding: 10px;
   font-size: 18px;
   border-radius: 18px;
@@ -44,4 +44,42 @@ body{
 .button:hover{
   cursor: pointer;
   box-shadow: 0 5px 15px #ff5722;
+}
+*/
+
+.button {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 17px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  text-decoration: none;
+  font-weight:600;
+}
+
+.button:hover,
+.button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+  background-color: white;
+}
+
+.button:active {
+  opacity: .5;
 }

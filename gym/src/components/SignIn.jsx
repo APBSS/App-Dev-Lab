@@ -1,6 +1,5 @@
 import React from 'react';
 import './SignIn.css'; // Import the CSS file
-import signimg from '../images/1.jpg'
 import { Link } from 'react-router-dom';
 
 const SignIn = () => {
@@ -24,7 +23,7 @@ const SignIn = () => {
           placeholder="Enter your password"
           required
         />
-        <p className='signinbutton'>Sign In</p>
+        <Link to="/Dashboard" style={{textDecoration:"none"}}><p className='signinbutton'>Sign In</p></Link>
         <div className="signup-link">
           <p>Don't have an account? <Link to="/Register"><a href="#register" >Register</a></Link></p>
         </div>
