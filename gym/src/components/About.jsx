@@ -25,6 +25,9 @@ const About = () => {
 
   return (
     <div className="steps-container" id='about'>
+      <h2 className="unique-subtitle">
+        <span className="unique-line"></span> About<span className="unique-line"></span>
+      </h2>
       <h2 className="steps-heading">Easy Step To Achieve Your Goals.</h2>
       <div className="steps">
       <svg className="connector-line">

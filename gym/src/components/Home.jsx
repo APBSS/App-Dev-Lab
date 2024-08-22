@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import About from './About';
+import Services from './Services';
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       </main>
       </div>
       <About />
+      <Services />
       <footer id='footer' style={{backgroundColor:"black"}}>
         <p>&copy; 2024 Gym Management System. All rights reserved.</p>
         <Footer />
