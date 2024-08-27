@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import './SignIn.css';
 import { Link } from 'react-router-dom';
-
+import CloseIcon from '@mui/icons-material/Close';
 const SignIn = () => {
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   useEffect(() => {
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
     const container = document.getElementById('container');
+	
 
     signUpButton.addEventListener('click', () => {
       container.classList.add('right-panel-active');
@@ -28,27 +30,33 @@ const SignIn = () => {
     };
   }, []);
 
+  const cancelLogout = () => {
+    setIsLogoutModalOpen(false);
+  };
+  const handleLogoutClick = () => {
+    setIsLogoutModalOpen(true);
+  };
+  
   return (
     <div className='signin'>
       <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form action="#" >
 			<h1>Register</h1>
 			
 			<input type="text" placeholder="Username" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<button>Register</button>
+			<button onClick={handleLogoutClick}>Register</button>
 		</form>
 	</div>
-	<div class="form-container sign-in-container">
+	<div class="form-container sign-in-container" id='signin'>
 		<form action="#">
 			<h1>Sign in</h1>
-			
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+			<Link to="/dashboard1"><button>Sign In</button></Link>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -66,6 +74,18 @@ const SignIn = () => {
 		</div>
 	</div>
 </div>
+{/* Logout Confirmation Modal */}
+{isLogoutModalOpen && (
+        <div className="logout-modal-overlay">
+          <div className="logout-modal">
+			<CloseIcon onClick={cancelLogout} style={{marginLeft:290,cursor:"pointer"}}/>
+		  <h2>You are Registered</h2>
+		  <p>Go to Sign In page</p>
+            <div className="modal-buttons">
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -12,9 +12,9 @@
   
   .steps {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 100px;
   }
   
   .step {
