@@ -1,0 +1,123 @@
+/* General Styles */
+.app {
+    display: flex;
+    min-height: 100vh;
+    background-color: rgb(241, 224, 224);
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 80px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .sidebar-item {
+    margin: 20px 0;
+    font-size: 24px;
+    color: #99aab5;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+  
+  .sidebar-item.active, .sidebar-item:hover {
+    color: #7289da;
+  }
+  
+  section {
+    margin-bottom: 30px;
+  }
+  
+  /* Progress Tracker Styles */
+  .progress-tracker-section {
+    display: flex;
+    justify-content: space-between;
+
+  }
+  
+  .progress-tracker {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+  }
+
+  .progress-card {
+    background-color: #fff;
+    padding: 90px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  
+  .progress-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .progress-card p{
+    background-color: #55555599;
+    border-radius: 10px;
+    padding: 3px;
+    color: rgba(255, 255, 255, 0.908);
+  }
+  .fat p{
+    padding: 5px 20px;
+  }
+  .yellow {
+    background-color: #ffd700;
+  }
+  
+  .green {
+    background-color: #4caf50;
+  }
+  .blue {
+    background-color:#3a98e5;
+  }
+  
+  .red {
+    background-color:#ec6157;
+  }
+  
+  .calories-for-today {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  .calories-chart {
+    height: 200px;
+    margin-top: 20px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+  }
+  
+  .lowerdiet{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+  .cs{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  .fat{
+    padding: 90px 65px;
+  }
+  .carbs{
+    padding: 90px 35px;
+  }
+  .acarbs{
+    padding: 90px 53px;
+  }

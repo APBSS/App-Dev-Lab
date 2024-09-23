@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import './Dashboard1.css';
 
 // Register the components
@@ -117,9 +117,9 @@ const Dashboard1 = () => {
             <li className="dashboard-list-item white-theme">Customize Existing Plans</li>
             <li className="dashboard-list-item white-theme">View Suggested Plans</li>
           </ul>
-          <button className="dashboard-button white-theme" onClick={() => navigate('/diet-plans')}>
+          <Link to="/diet" id='dietlink'><button className="dashboard-button white-theme" onClick={() => navigate('/diet-plans')}>
             Manage Diet Plans
-          </button>
+          </button></Link>
         </div>
 
         <div className="dashboard-card">

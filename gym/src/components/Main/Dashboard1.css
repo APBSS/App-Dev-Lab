@@ -1,5 +1,11 @@
   
   .dashboard-container {
+    background-image: url("../../images/dash-img.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; 
+    width: 100vw;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -24,7 +30,7 @@
   }
   
   .dashboard-card {
-    background-color: #2c2c2c;
+    background-color: rgba(44, 44, 44, 0.75);
     color: #e0e0e0;
     padding: 20px;
     border-radius: 8px;
@@ -69,6 +75,7 @@
     font-size: 1.5rem;
     margin-bottom: 10px;
     transition: font-size 0.3s ease-in-out;
+    opacity: 1;
   }
   
   .dashboard-card h6:hover {
@@ -131,9 +138,12 @@
   
   /* White Theme Elements */
   .dashboard-card.white-theme {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.6);
     color: #333333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .dashboard-card.white-theme li,h6{
+    opacity: 1;
   }
   
   .dashboard-card.white-theme h6 {
@@ -149,7 +159,9 @@
     color: #FF4742;
     border: 2px solid #FF4742;
   }
-  
+  #dietlink{
+    margin-left: 50px;
+  }
   .dashboard-button.white-theme:hover {
     background-color: #FF4742;
     color: #ffffff;
@@ -172,7 +184,7 @@
   
   .menu-bar {
     height: 4px;
-    background-color: #fff;
+    background-color: black;
     transition: all 0.3s ease;
   }
   

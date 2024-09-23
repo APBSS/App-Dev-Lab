@@ -55,7 +55,7 @@ const SignIn = () => {
 			<h1>Sign in</h1>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
+			<a href="#f">Forgot your password?</a>
 			<Link to="/dashboard1"><button>Sign In</button></Link>
 		</form>
 	</div>
