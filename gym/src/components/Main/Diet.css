@@ -135,5 +135,65 @@
     padding: 90px 35px;
   }
   .acarbs{
-    padding: 90px 53px;
+    padding: 90px 78px;
   }
+ /* Popup container */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: -500px; /* Initially off the screen */
+  width: 500px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  animation: slideOut 0.4s forwards;
+}
+
+/* Animation for sliding in */
+@keyframes slideIn {
+  0% {
+    left: -500px;
+    opacity: 0;
+  }
+  100% {
+    left: 80px;
+    opacity: 1;
+  }
+}
+
+/* Animation for sliding out */
+@keyframes slideOut {
+  0% {
+    left: 80px;
+    opacity: 1;
+  }
+  100% {
+    left: -500px;
+    opacity: 0;
+  }
+}
+/* When the popup is visible, slide it in */
+.popup-container.show {
+  animation: slideIn 0.4s forwards;
+}
+.popup-container.hide {
+  animation: slideOut 0.4s forwards;
+}
+/* Popup content styling */
+.popup-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  align-self: flex-end;
+}
