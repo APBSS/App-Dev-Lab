@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import './Diet.css';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
@@ -12,6 +12,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import CloseIcon from '@mui/icons-material/Close';
+import SendIcon from '@mui/icons-material/Send';
+import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
+import SettingsVoiceIcon from '@mui/icons-material/SettingsVoice';
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
@@ -51,7 +54,108 @@ function Diet() {
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible); // Toggle the popup visibility
   };
+  const [input, setInput] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [isListening, setIsListening] = useState(false);
+  
+  // Use a ref to store the recognition object
+  const recognitionRef = useRef(null);
 
+  useEffect(() => {
+    if ('webkitSpeechRecognition' in window) {
+      recognitionRef.current = new window.webkitSpeechRecognition();
+    } else if ('SpeechRecognition' in window) {
+      recognitionRef.current = new window.SpeechRecognition();
+    }
+
+    if (recognitionRef.current) {
+      recognitionRef.current.continuous = false;
+      recognitionRef.current.interimResults = true;
+
+      recognitionRef.current.onresult = (event) => {
+        let finalTranscript = '';
+
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            finalTranscript += event.results[i][0].transcript;
+          }
+        }
+
+        setInput(finalTranscript);
+      };
+
+      recognitionRef.current.onend = () => {
+        setIsListening(false);
+      };
+
+      recognitionRef.current.onerror = (event) => {
+        console.error('Speech recognition error detected: ' + event.error);
+        setIsListening(false);
+      };
+    }
+
+    // Cleanup function to cancel speech synthesis
+    return () => {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!input.trim()) return; // Prevent empty submissions
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { text: input, type: 'user' }
+    ]);
+    try {
+      const response = await fetch('https://helixul.pythonanywhere.com/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: input }),
+      });
+      const data = await response.json();
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: data.response, type: 'bot' },
+      ]);
+      // Call the function to read out the bot's response
+      speak(data.response);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    setInput('');
+  };
+  const handleSpeak = () => {
+    const recognition = recognitionRef.current;
+    if (recognition) {
+      if (isListening) {
+        recognition.stop();
+        setIsListening(false);
+      } else {
+        setInput(''); // Clear the input before starting
+        recognition.start();
+        setIsListening(true);
+      }
+    } else {
+      alert('Speech recognition not supported in this browser.');
+    }
+  };
+  const speak = (text) => {
+    if ('speechSynthesis' in window) {
+      // Cancel any ongoing speech synthesis
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
+    } else {
+      console.error('Speech synthesis not supported in this browser.');
+    }
+  };
   return (
     <div className="app">
       <div className="sidebar">
@@ -211,10 +315,36 @@ function Diet() {
         <div className={`popup-container ${isPopupVisible ? 'show' : 'hide'}`}>
           <div className="popup-content">
             <button className="close-button" onClick={togglePopup}>
-              <CloseIcon />
+              <CloseIcon style={{color:"red",fontSize:30,fontWeight:"bold"}}/>
             </button>
-            <h2>Popup Content</h2>
-            <p>This is the popup triggered by the SmartToy icon.</p>
+            <div className='botcontainer'>
+        <div className='bothome'>
+          <div className='answer'>
+            {messages.length === 0 ? (
+              <div className='no-messages'>
+                No messages
+              </div>
+            ) : (
+              messages.map((msg, index) => (
+                <pre key={index} className={msg.type} id='pre'>
+                  {msg.text}
+                </pre>
+              ))
+            )}
+          </div>
+          <form onSubmit={handleSubmit} className='prompt'>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <SendIcon onClick={handleSubmit} style={{cursor:"pointer",color:'white'}}/>
+            <p onClick={handleSpeak} style={{fontSize:32,cursor:"pointer"}}>
+              {isListening ? <SettingsVoiceIcon style={{color:'white'}}/> : <KeyboardVoiceIcon style={{color:'white'}}/>}
+            </p>
+          </form>
+        </div>
+      </div>
           </div>
         </div>
       )}
