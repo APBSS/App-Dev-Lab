@@ -131,7 +131,8 @@ const Dashboard1 = () => {
           </ul>
         </div>
 
-        <div className="dashboard-card">
+        <Link to="/feedback" className="dashboard-card feed" style={{textDecoration:"none"}}>
+        
           <h6>Member Feedback</h6>
           <ul className="dashboard-list">
             {['Great gym! Loving the atmosphere.', 'The trainers are really helpful.', 'Could use more equipment.'].map(
@@ -140,7 +141,8 @@ const Dashboard1 = () => {
               )
             )}
           </ul>
-        </div>
+        
+        </Link>
 
         <div className="dashboard-card white-theme">
           <h6>Reports</h6>
