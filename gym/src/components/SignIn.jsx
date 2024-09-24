@@ -43,7 +43,11 @@ const SignIn = () => {
 	<div class="form-container sign-up-container">
 		<form action="#" >
 			<h1>Register</h1>
-			
+			<select>
+        <option disabled value="">Select Category</option>
+        <option value="trainer">Trainer</option>
+        <option value="gymuser">Gym User</option>
+      </select>
 			<input type="text" placeholder="Username" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
@@ -53,6 +57,11 @@ const SignIn = () => {
 	<div class="form-container sign-in-container" id='signin'>
 		<form action="#">
 			<h1>Sign in</h1>
+      <select>
+        <option disabled value="">Select Category</option>
+        <option value="trainer">Trainer</option>
+        <option value="gymuser">Gym User</option>
+      </select>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 			<a href="#f">Forgot your password?</a>

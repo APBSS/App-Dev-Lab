@@ -84,12 +84,16 @@
 	text-align: center;
 }
 
-.signin input {
+.signin input,select {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
+}
+.signin select{
+	border: 1px solid white;
+	border-radius: 5px;
 }
 
 .signin .container {
