@@ -45,6 +45,9 @@
     opacity: 0;
     animation: fadeInUp 0.5s ease-in-out forwards;
   }
+  .dashboard-card:hover{
+    transform: scale(1.2);
+  }
   
   .dashboard-card.large {
     max-width: 100%;

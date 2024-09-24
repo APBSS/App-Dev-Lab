@@ -2,7 +2,10 @@
 .app {
     display: flex;
     min-height: 100vh;
-    background-color: rgb(241, 224, 224);
+    background-image: url("../../images/fruit1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   /* Sidebar Styles */
@@ -12,9 +15,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    gap: 25px;
+    padding-top: 50px;
+
   }
-  
+  .test{
+    width: 1100px;
+    height: 90svh;
+    margin-left: -400px;
+    
+  }
   .sidebar-item {
     margin: 20px 0;
     font-size: 24px;
@@ -24,7 +34,7 @@
   }
   
   .sidebar-item.active, .sidebar-item:hover {
-    color: #7289da;
+    color: #FF4B2B;
   }
   
   section {
@@ -81,28 +91,31 @@
   }
   
   .calories-for-today {
-    background-color: #fff;
+    background-color: transparent;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     text-align: center;
   }
   
   .calories-chart {
-    height: 200px;
+    height: 300px;
+    width: 500px;
     margin-top: 20px;
-    background-color: #e0e0e0;
+    background-color: transparent;
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 2px 4px 0px, rgba(255, 255, 255, 0.5) 0px 2px 16px 0px;    
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #888;
+    padding: 20px 0px;
   }
   
   .lowerdiet{
     display: flex;
     flex-direction: row;
     gap: 50px;
+    margin-left: 280px;
   }
   .cs{
     position: absolute;

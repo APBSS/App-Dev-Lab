@@ -1,33 +1,75 @@
 import React from 'react';
 import './Diet.css';
 import HomeIcon from '@mui/icons-material/Home';
-import LoopIcon from '@mui/icons-material/Loop';
 import SearchIcon from '@mui/icons-material/Search';
 import SettingsIcon from '@mui/icons-material/Settings';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
+import { Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartLine } from '@fortawesome/free-solid-svg-icons';
+
+// Register Chart.js components
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
+
+const CaloriesChart = () => {
+  const data = {
+    labels: ['Protein', 'Carbs', 'Fat'],
+    datasets: [
+      {
+        label: 'Calories Breakdown',
+        data: [300, 500, 200], // Calories values for Protein, Carbs, Fat
+        backgroundColor: [
+          '#3a98e5',
+          '#ec6157',
+          '#ffd700',
+        ],
+        borderWidth: 0,
+      },
+    ],
+  };
+  const options = {
+    plugins: {
+      datalabels: {
+        color: '#000', // Text color
+        anchor: 'center',
+        align: 'center',
+        font: {
+          size: 14,
+          weight: 'bold',
+        },
+        formatter: (value) => value + 'gm', // Format the labels to show the value and 'cal'
+      },
+    },
+  };
+  return <Pie data={data} options={options}/>;
+};
 function Diet() {
   return (
     <div className="app">
       <div className="sidebar">
         <div className="sidebar-item active">
-          <HomeIcon />
+          <Link to="/dashboard1" className="sidebar-item active"><HomeIcon style={{fontSize:30}} /></Link>
         </div>
         <div className="sidebar-item">
-          <LoopIcon />
+          <FontAwesomeIcon icon={faChartLine} />
         </div>
         <div className="sidebar-item">
-          <SearchIcon />
+          <SearchIcon style={{fontSize:30}}/>
         </div>
         <div className="sidebar-item">
-          <SettingsIcon />
+          <SettingsIcon style={{fontSize:30}}/>
         </div>
       </div>
       
       <main className="main-content">
-        <h3 style={{color:"black",fontSize:25,marginBottom:20}}>Analytics Overview :</h3>
+        <div className='test'>
+        <h3 style={{color:"white",fontSize:25,marginBottom:20}}>Analytics Overview </h3>
         <section className="progress-tracker-section">
           <div className="progress-tracker">
-            <div className="progress-card yellow">
+            <div className="progress-card blue">
               <RestaurantIcon />
               <h3>Average Proteins</h3>
               <p>380 mg</p>
@@ -57,7 +99,7 @@ function Diet() {
                 </div>
               </div>
             </div>
-            <div className="progress-card blue fat">
+            <div className="progress-card yellow fat">
             <RestaurantIcon />
               <h3>Total Fat</h3>
               <p>94.6 KCL</p>
@@ -93,13 +135,13 @@ function Diet() {
         <div className='lowerdiet'>
         <section className="calories-for-today-section">
           <div className="calories-for-today">
-            <h3>Calories for Today</h3>
+            <h3 style={{color:"white"}}>Calories for Today</h3>
             <div className="calories-chart">
-              {/* Add chart using a library like Chart.js or a custom solution */}
-              <p>Chart coming soon...</p>
+              <CaloriesChart />
             </div>
           </div>
         </section>
+        </div>
         </div>
       </main>
     </div>
