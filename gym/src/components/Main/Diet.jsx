@@ -2,7 +2,6 @@ import React, { useState,useEffect,useRef } from 'react';
 import './Diet.css';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
-import SettingsIcon from '@mui/icons-material/Settings';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -15,7 +14,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import SettingsVoiceIcon from '@mui/icons-material/SettingsVoice';
-
+import BMI from './BMI.jsx'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { faGaugeHigh } from '@fortawesome/free-solid-svg-icons';
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -50,7 +51,7 @@ const CaloriesChart = () => {
 
 function Diet() {
   const [isPopupVisible, setIsPopupVisible] = useState(false); // State to manage popup visibility
-
+  const [selectedTab, setSelectedTab] = useState('home');
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible); // Toggle the popup visibility
   };
@@ -60,7 +61,10 @@ function Diet() {
   
   // Use a ref to store the recognition object
   const recognitionRef = useRef(null);
-
+  const handlebot = ()=>{
+    handleTabClick('bot');
+    togglePopup();
+  }
   useEffect(() => {
     if ('webkitSpeechRecognition' in window) {
       recognitionRef.current = new window.webkitSpeechRecognition();
@@ -156,29 +160,44 @@ function Diet() {
       console.error('Speech synthesis not supported in this browser.');
     }
   };
+  const handleTabClick = (tab) => {
+    setSelectedTab(tab);
+  };
   return (
     <div className="app">
       <div className="sidebar">
-        <div className="sidebar-item active">
-          <Link to="/dashboard1" className="sidebar-item active">
-            <HomeIcon style={{ fontSize: 30 }} />
-          </Link>
-        </div>
-        <div className="sidebar-item">
-          <FontAwesomeIcon icon={faChartLine} />
-        </div>
-        <div className="sidebar-item">
-          <SearchIcon style={{ fontSize: 30 }} />
-        </div>
-        <div className="sidebar-item">
-          <SettingsIcon style={{ fontSize: 30 }} />
-        </div>
-        <div className="sidebar-item" onClick={togglePopup}>
-          {/* Toggle popup on click */}
-          <SmartToyIcon style={{ fontSize: 30 }} />
-        </div>
-      </div>
+    <Link to="/dashboard1" className="dietback"><ChevronLeftIcon style={{ fontSize: 30 }} /></Link>
+    <div 
+        className={`sidebar-item ${selectedTab === 'home' ? 'active' : ''}`} 
+        onClick={() => handleTabClick('home')}
+    >
+        <HomeIcon style={{ fontSize: 30 }} />
+    </div>
+    <div 
+        className={`sidebar-item ${selectedTab === 'analytics' ? 'active' : ''}`} 
+        onClick={() => handleTabClick('analytics')}
+    >
+        <FontAwesomeIcon icon={faChartLine} />
+    </div>
+    <div 
+        className={`sidebar-item ${selectedTab === 'search' ? 'active' : ''}`} 
+        onClick={() => handleTabClick('search')}
+    >
+        <SearchIcon style={{ fontSize: 30 }} />
+    </div>
+    <div 
+        className={`sidebar-item ${selectedTab === 'settings' ? 'active' : ''}`} 
+        onClick={() => handleTabClick('settings')}
+    >
+        <FontAwesomeIcon icon={faGaugeHigh} style={{ fontSize: 27 }} />
+    </div>
+    <div className="sidebar-item" onClick={handlebot}>
+        <SmartToyIcon style={{ fontSize: 30 }} />
+    </div>
 
+  </div>
+      {selectedTab === 'settings' && <BMI />}
+      {((selectedTab === 'home') || (selectedTab === 'bot')) &&
       <main className="main-content">
         <div className="test">
           <h3 style={{ color: 'white', fontSize: 25, marginBottom: 20 }}>
@@ -300,7 +319,7 @@ function Diet() {
           <div className="lowerdiet">
             <section className="calories-for-today-section">
               <div className="calories-for-today">
-                <h3 style={{ color: 'white' }}>Calories for Today</h3>
+                <h3 style={{ color: 'white',fontSize:25 }}>Calories for Today</h3>
                 <div className="calories-chart">
                   <CaloriesChart />
                 </div>
@@ -309,9 +328,9 @@ function Diet() {
           </div>
         </div>
       </main>
-
+      }
       {/* Popup section */}
-      {isPopupVisible && (
+      {isPopupVisible && selectedTab === 'bot' && (
         <div className={`popup-container ${isPopupVisible ? 'show' : 'hide'}`}>
           <div className="popup-content">
             <button className="close-button" onClick={togglePopup}>
