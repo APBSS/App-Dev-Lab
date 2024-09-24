@@ -291,3 +291,7 @@
 .feed{
   cursor: pointer;
 }
+.report{
+  font-size: 14px;
+  font-weight:500;
+}

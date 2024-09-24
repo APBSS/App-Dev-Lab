@@ -146,6 +146,11 @@ const Dashboard1 = () => {
 
         <div className="dashboard-card white-theme">
           <h6>Reports</h6>
+          <ul className="dashboard-list white-theme">
+            <li className="dashboard-list-item white-theme report">You’ve attended the gym 12 times this month.</li>
+            <li className="dashboard-list-item white-theme report">You maintained an average of 3 visits per week.</li>
+            <li className="dashboard-list-item white-theme report">Great job completing 85% of your planned workouts!</li>
+          </ul>
           <button className="dashboard-button white-theme" onClick={() => navigate('/reports')}>
             View Reports
           </button>
