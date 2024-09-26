@@ -105,11 +105,12 @@ const Dashboard1 = () => {
       )}
 
       <div className="dashboard-grid">
+      <Link to="/attendance" style={{textDecoration:"none"}}>
         <div className="dashboard-card large">
-          <Link to="/attendance" style={{textDecoration:"none"}}><h6>Attendance Tracking</h6></Link>
+          <h6>Attendance Tracking</h6>
           <Line data={attendanceData} options={options} />
         </div>
-
+        </Link>
         <div className="dashboard-card white-theme">
           <h6>Diet Plans</h6>
           <ul className="dashboard-list white-theme">

@@ -4,7 +4,7 @@ import person from '../../images/person.png'
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Link } from 'react-router-dom';
 // Testimonial component
 const Testimonial = ({ text, name, image }) => {
@@ -42,7 +42,9 @@ const Feedback = () => {
 
   return (
     <div style={{display:"flex",flexDirection:"column"}}>
-      <Link to="/dashboard1" style={{color:"black"}}><KeyboardBackspaceIcon style={{position:"absolute",top:25,left:25,fontSize:40,cursor:"pointer"}}/></Link>
+      <Link to="/dashboard1">
+        <ChevronLeftIcon style={{ fontSize: 30,color:"white",backgroundColor:"black",borderRadius:20,position:"absolute",top:20,left:15}} />
+      </Link>
       <div className="feedback-container">
       <h2 className="feedback-heading">How We Help People</h2>
       <p className="feedback-subheading">

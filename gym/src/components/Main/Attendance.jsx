@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Attendance.css';
+import './Attendance.css'
 import { Link } from 'react-router-dom';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
@@ -11,7 +11,8 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import enUS from 'date-fns/locale/en-US';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // Import green tick icon
 import CancelIcon from '@mui/icons-material/Cancel'; // Import cancel icon for 'X'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFire } from '@fortawesome/free-solid-svg-icons';
 // Locale configuration
 const locales = {
   'en-US': enUS,
@@ -63,14 +64,13 @@ const Attendance = () => {
 
   return (
     <div className="attendance">
-      <Link to="/dashboard1" className="dietback">
-        <ChevronLeftIcon style={{ fontSize: 30 }} />
+      <Link to="/dashboard1">
+        <ChevronLeftIcon style={{ fontSize: 30,color:"white",backgroundColor:"black",borderRadius:20,position:"absolute",top:20,left:15}} />
       </Link>
-      <div className="main-chart">
-        
-        <div className="calendar-container">
+      <div className="amain-chart">        
+        <div className="acalendar-container">
         <h3 className='attendtitle'>Attendance</h3>
-          <div className='calendar'>   
+          <div className='acalendar'>   
             <Calendar
               localizer={localizer}
               events={events}
@@ -86,22 +86,23 @@ const Attendance = () => {
           </div>
         </div>
       </div>
-      <div className="side-info">
-        <div className="info-card">
-          <p>Total Gym Visits</p>
-          <h3>{events.filter(event => event.attended).length}</h3>
+      <div className="aside-info">
+        <div className="ainfo-card">
+          <p id='info-p'>Total Gym Visits</p>
+          <h3 id='info-h'>{events.filter(event => event.attended).length}</h3>
         </div>
-        <div className="info-card">
-          <p>Days Missed</p>
-          <h3>{events.filter(event => !event.attended).length}</h3>
+        <div className="ainfo-card">
+          <p id='info-p'>Days Missed</p>
+          <h3 id='info-h'>{events.filter(event => !event.attended).length}</h3>
         </div>
-        <div className="info-card">
-          <p>Current Streak</p>
-          <h3>5 Days</h3>
+        <div className="ainfo-card">
+          <p id='info-p'>Current Streak</p>
+          
+          <h3 id='info-h'>5 Days <FontAwesomeIcon icon={faFire} style={{color:"#FF4742",fontSize:25}}/></h3>
         </div>
-        <div className="info-card">
-          <p>Goals Met</p>
-          <h3>80%</h3>
+        <div className="ainfo-card">
+          <p id='info-p'>Goals Met</p>
+          <h3 id='info-h'>80%</h3>
         </div>
         
       </div>
