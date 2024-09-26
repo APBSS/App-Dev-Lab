@@ -4,6 +4,7 @@ import SignIn from "./components/SignIn";
 import Dashboard1 from "./components/Main/Dashboard1";
 import Diet from "./components/Main/Diet";
 import Feedback from "./components/Main/Feedback";
+import Attendance from "./components/Main/Attendance";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/dashboard1" element={<Dashboard1 />}/>
         <Route path="/diet" element={<Diet />}/>
         <Route path="/feedback" element={<Feedback />}/>
+        <Route path="/attendance" element={<Attendance />}/>
       </Routes>
     </BrowserRouter>
   );

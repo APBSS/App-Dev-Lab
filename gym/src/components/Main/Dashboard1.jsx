@@ -106,7 +106,7 @@ const Dashboard1 = () => {
 
       <div className="dashboard-grid">
         <div className="dashboard-card large">
-          <h6>Attendance Tracking</h6>
+          <Link to="/attendance" style={{textDecoration:"none"}}><h6>Attendance Tracking</h6></Link>
           <Line data={attendanceData} options={options} />
         </div>
 

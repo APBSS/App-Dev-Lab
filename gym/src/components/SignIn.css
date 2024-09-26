@@ -92,6 +92,9 @@
 	width: 100%;
 }
 .signin select{
+	width: 100%;
+	color: #333;
+	background-color:#eee ;
 	border: 1px solid white;
 	border-radius: 5px;
 }
