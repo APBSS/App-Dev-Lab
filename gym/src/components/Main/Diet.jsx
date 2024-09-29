@@ -22,12 +22,12 @@ ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const CaloriesChart = () => {
   const data = {
-    labels: ['Protein', 'Carbs', 'Fat'],
+    labels: ['Protein', 'Carbs', 'Fat','Vitamins'],
     datasets: [
       {
         label: 'Calories Breakdown',
-        data: [300, 500, 200], // Calories values for Protein, Carbs, Fat
-        backgroundColor: ['#3a98e5', '#ec6157', '#ffd700'],
+        data: [300, 500, 200, 100], // Calories values for Protein, Carbs, Fat
+        backgroundColor: ['#3a98e5', '#ec6157', '#ffd700','#4caf50'],
         borderWidth: 0,
       },
     ],
@@ -39,10 +39,10 @@ const CaloriesChart = () => {
         anchor: 'center',
         align: 'center',
         font: {
-          size: 14,
+          size: 13,
           weight: 'bold',
         },
-        formatter: (value) => value + 'gm', // Format the labels to show the value and 'cal'
+        formatter: (value) => value + 'g', // Format the labels to show the value and 'cal'
       },
     },
   };
@@ -333,7 +333,8 @@ function Diet() {
       {isPopupVisible && selectedTab === 'bot' && (
         <div className={`popup-container ${isPopupVisible ? 'show' : 'hide'}`}>
           <div className="popup-content">
-            <button className="close-button" onClick={togglePopup}>
+            <h3 style={{color:"white",textAlign:"center"}}>Health <span style={{color:"#FF4B2B"}}>Bot</span></h3>
+            <button className="close_button" onClick={togglePopup}>
               <CloseIcon style={{color:"red",fontSize:30,fontWeight:"bold"}}/>
             </button>
             <div className='botcontainer'>

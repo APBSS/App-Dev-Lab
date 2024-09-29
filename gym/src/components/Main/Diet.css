@@ -197,12 +197,13 @@
   position: relative;
 }
 
-.close-button {
+.close_button {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 20px;
-  align-self: flex-end;
+  position: absolute;
+  right: 10px;
 }
 .botcontainer{
   position: absolute;
