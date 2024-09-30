@@ -147,17 +147,16 @@ const Dashboard1 = () => {
         </Link>
 
         <div className="dashboard-card white-theme">
-          <h6>Reports</h6>
+          <h6>Exercise Progress</h6>
           <ul className="dashboard-list white-theme">
-            <li className="dashboard-list-item white-theme report">You’ve attended the gym 12 times this month.</li>
-            <li className="dashboard-list-item white-theme report">You maintained an average of 3 visits per week.</li>
-            <li className="dashboard-list-item white-theme report">Great job completing 85% of your planned workouts!</li>
+            <li className="dashboard-list-item white-theme report">Improve shoulder strength and mobility.</li>
+            <li className="dashboard-list-item white-theme report">Great for building upper body strength.</li>
+            <li className="dashboard-list-item white-theme report">Improve lower body strength and balance.</li>
           </ul>
-          <button className="dashboard-button white-theme" onClick={() => navigate('/reports')}>
-            View Reports
-          </button>
+          <Link to="/exercise" style={{display:"flex",justifyContent:"center",textDecoration:"none"}}><button className="dashboard-button white-theme">
+            View Progress
+          </button></Link>
         </div>
-
         
       </div>
     </div>
