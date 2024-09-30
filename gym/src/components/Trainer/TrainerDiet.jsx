@@ -58,7 +58,7 @@ function TrainerDiet() {
   return (
     <div className="trainer-app">
       <div className="trainer-sidebar">
-        <Link to="/dashboard1" className="sidebar-link">
+        <Link to="/trainerdashboard" className="sidebar-link">
           <ArrowBackIcon style={{ fontSize: 30, color: 'white' }} />
         </Link>
       </div>

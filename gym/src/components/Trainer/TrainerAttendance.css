@@ -1,0 +1,82 @@
+.tattendance {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-image: url("../../images/tattend.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .employees-info {
+    background-color: #fbfbfbc6;
+    padding: 20px;
+    border-radius: 8px;
+    width: 700px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px 0px, rgba(0, 0, 0, 0.5) 0px 2px 16px 0px;    
+  }
+  
+  .tattendance-stats {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 100px;
+  }
+
+  .total-users{
+    width: 450px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #fbfbfbc6;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px 0px, rgba(0, 0, 0, 0.5) 0px 2px 16px 0px;    
+  }
+  .stat-item {
+    background-color: #fbfbfbc6;
+    width: 180px;
+    height: 100px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px 0px, rgba(0, 0, 0, 0.5) 0px 2px 16px 0px;    
+  }
+  .tattendance-title{
+    font-size: 28px;
+    width: 263px;
+    margin-top: 40px;
+    border-bottom: 3px solid #ff2272;
+    margin-bottom: 50px;
+  }
+  .stat-item h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .stat-item p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .total-users h2, .total-users h3 {
+    text-align: center;
+  }
+  
+  .total-users h3 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+
+  }
+  .stats{
+    margin-top: -80px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+  }

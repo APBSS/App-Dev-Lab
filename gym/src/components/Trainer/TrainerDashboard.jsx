@@ -104,10 +104,10 @@ const TrainerDashboard = () => {
       )}
 
       <div className="dashboard-grid">
-        <div className="dashboard-card large">
+        <Link to="/trainerattendance" className="dashboard-card large">
           <h6>Client Attendance</h6>
           <Line data={attendanceData} options={options} />
-        </div>
+        </Link>
 
         <div className="dashboard-card white-theme">
           <h6>Diet Plan Management</h6>
