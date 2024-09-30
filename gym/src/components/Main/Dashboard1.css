@@ -44,6 +44,7 @@
     transition: ease-in-out 0.4s, box-shadow 0.3s, opacity 0.3s;
     opacity: 0;
     animation: fadeInUp 0.5s ease-in-out forwards;
+    text-decoration: none;
   }
   
   .dashboard-card.large {

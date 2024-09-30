@@ -123,14 +123,15 @@ const Dashboard1 = () => {
           </button></Link>
         </div>
 
-        <div className="dashboard-card">
+
+          <Link to="/onlinesession" className='dashboard-card'>
           <h6>Online Sessions</h6>
           <ul className="dashboard-list">
             {['Yoga Session - 10 AM', 'HIIT Session - 12 PM', 'Strength Training - 5 PM'].map((session, index) => (
               <li key={index} className="dashboard-list-item">{session}</li>
             ))}
           </ul>
-        </div>
+          </Link>
 
         <Link to="/feedback" className="dashboard-card feed" style={{textDecoration:"none"}}>
         

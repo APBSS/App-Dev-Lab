@@ -1,14 +1,14 @@
 import React, { useState,useEffect,useRef } from 'react';
 import './Diet.css';
 import HomeIcon from '@mui/icons-material/Home';
-import SearchIcon from '@mui/icons-material/Search';
+// import SearchIcon from '@mui/icons-material/Search';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine } from '@fortawesome/free-solid-svg-icons';
+// import { faChartLine } from '@fortawesome/free-solid-svg-icons';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
@@ -173,7 +173,7 @@ function Diet() {
     >
         <HomeIcon style={{ fontSize: 30 }} />
     </div>
-    <div 
+    {/*<div 
         className={`sidebar-item ${selectedTab === 'analytics' ? 'active' : ''}`} 
         onClick={() => handleTabClick('analytics')}
     >
@@ -184,7 +184,7 @@ function Diet() {
         onClick={() => handleTabClick('search')}
     >
         <SearchIcon style={{ fontSize: 30 }} />
-    </div>
+    </div>*/}
     <div 
         className={`sidebar-item ${selectedTab === 'settings' ? 'active' : ''}`} 
         onClick={() => handleTabClick('settings')}

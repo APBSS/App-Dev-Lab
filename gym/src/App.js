@@ -7,6 +7,7 @@ import Feedback from "./components/Main/Feedback";
 import Attendance from "./components/Main/Attendance";
 import TrainerDashboard from "./components/Trainer/TrainerDashboard";
 import TrainerDiet from "./components/Trainer/TrainerDiet";
+import OnlineSession from "./components/Main/OnlineSession";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/diet" element={<Diet />}/>
         <Route path="/feedback" element={<Feedback />}/>
         <Route path="/attendance" element={<Attendance />}/>
+        <Route path="/onlinesession" element={<OnlineSession />}/>
         <Route path="/trainerdashboard" element={<TrainerDashboard />}/>
         <Route path="/trainerdiet" element={<TrainerDiet />}/>
       </Routes>

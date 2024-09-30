@@ -43,7 +43,7 @@ const Feedback = () => {
   return (
     <div style={{display:"flex",flexDirection:"column"}}>
       <Link to="/dashboard1">
-        <ChevronLeftIcon style={{ fontSize: 30,color:"white",backgroundColor:"black",borderRadius:20,position:"absolute",top:20,left:15}} />
+        <ChevronLeftIcon style={{ fontSize: 30,color:"white",position:"absolute",top:20,left:15}} />
       </Link>
       <div className="feedback-container">
       <h2 className="feedback-heading">How We Help People</h2>
