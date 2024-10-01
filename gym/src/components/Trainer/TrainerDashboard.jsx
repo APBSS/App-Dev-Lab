@@ -110,14 +110,14 @@ const TrainerDashboard = () => {
         </Link>
 
         <div className="dashboard-card white-theme">
-          <h6>Diet Plan Management</h6>
+          <h6>Diet and Exercise <br />Management</h6>
           <ul className="dashboard-list white-theme">
             <li className="dashboard-list-item white-theme">Suggest a New Diet Plan</li>
             <li className="dashboard-list-item white-theme">Review Client Plans</li>
-            <li className="dashboard-list-item white-theme">Update Existing Plans</li>
+            <li className="dashboard-list-item white-theme">Suggest a Exercise routine</li>
           </ul>
-          <Link to="/trainerdiet" id='dietlink'><button className="dashboard-button white-theme" onClick={() => navigate('/diet-plans')}>
-            Manage Diet Plans
+          <Link to="/trainerdiet" id='dietlink' ><button className="dashboard-button white-theme" onClick={() => navigate('/diet-plans')}>
+            Manage Plans
           </button></Link>
         </div>
 

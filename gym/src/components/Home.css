@@ -43,3 +43,30 @@
     -1px  1px 0 black,
      1px  1px 0 black;
   }
+
+  .input-wrapper {
+    display: block;
+    font-family: monospace;
+    font-size: 125%;
+    width: 50%;
+}
+
+.input-wrapper > input,
+.input-wrapper > .placeholder {
+    display: block;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.input-wrapper > .placeholder {
+    pointer-events: none;
+}
+
+/* You will need to implement the typed effect in JavaScript, as CSS alone can't handle it */
+.input-wrapper > input:focus + .placeholder,
+.input-wrapper > input:active + .placeholder {
+    display: none;
+}

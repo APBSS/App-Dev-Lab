@@ -1,30 +1,26 @@
 import React, { useState } from 'react';
 import './TrainerDiet.css';
-import { Link } from 'react-router-dom';
-import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search'; 
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import CloseIcon from '@mui/icons-material/Close';
 import luffy from '../../images/person.png'
-import TrainerExercise from './TrainerExercise';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+
 
 const initialUsers = [
-  { id: 1, name: 'Liam Smith', age: 25, bmi: 20 },
-  { id: 2, name: 'Emma Johnson', age: 30, bmi: 18 },
-  { id: 3, name: 'Noah Williams', age: 28, bmi: 26 },
-  { id: 4, name: 'Olivia Brown', age: 22, bmi: 22 },
-  { id: 5, name: 'Ava Jones', age: 27, bmi: 19 },
-  { id: 6, name: 'Elijah Garcia', age: 35, bmi: 29 },
-  { id: 7, name: 'Sophia Martinez', age: 24, bmi: 23 },
-  { id: 8, name: 'Lucas Hernandez', age: 31, bmi: 17 },
-  { id: 9, name: 'Mia Davis', age: 29, bmi: 27 },
-  { id: 10, name: 'Jackson Lopez', age: 26, bmi: 24 },
-  { id: 11, name: 'Amelia Wilson', age: 32, bmi: 25 },
-  { id: 12, name: 'James Anderson', age: 29, bmi: 28 },
+  { id: 1, name: 'Liam Smith', age: 25, bmi: 'Pro' },
+  { id: 2, name: 'Emma Johnson', age: 30, bmi: 'Pro' },
+  { id: 3, name: 'Noah Williams', age: 28, bmi: 'Pro' },
+  { id: 4, name: 'Olivia Brown', age: 22, bmi: 'Pro' },
+  { id: 5, name: 'Ava Jones', age: 27, bmi: 'Pro' },
+  { id: 6, name: 'Elijah Garcia', age: 35, bmi: 'Pro' },
+  { id: 7, name: 'Sophia Martinez', age: 24, bmi: 'Pro' },
+  { id: 8, name: 'Lucas Hernandez', age: 31, bmi: 'Pro' },
+  { id: 9, name: 'Mia Davis', age: 29, bmi: 'Pro' },
+  { id: 10, name: 'Jackson Lopez', age: 26, bmi: 'Pro' },
+  { id: 11, name: 'Amelia Wilson', age: 32, bmi: 'Pro' },
+  { id: 12, name: 'James Anderson', age: 29, bmi: 'Pro' },
 ];
 
-function TrainerDiet() {
+function TrainerExercise() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -57,36 +53,11 @@ function TrainerDiet() {
       [e.target.name]: e.target.value
     });
   };
-  const [selectedTab, setSelectedTab] = useState('tdiet');
 
-  const handleTabClick = (tab) => {
-    setSelectedTab(tab);
-  };
   return (
-    <div className="trainer-app">
-      <Link to="/trainerdashboard" style={{position:"absolute",top:20,left:15}}>
-          <ChevronLeftIcon style={{ fontSize: 30, color: 'white' }} />
-      </Link>
-      <div className="trainer-sidebar"> 
-    <div 
-        className={`sidebar-item ${selectedTab === 'tdiet' ? 'active' : ''}`} 
-        onClick={() => handleTabClick('tdiet')}
-    >
-        <RestaurantIcon style={{fontSize:25}}/>
-    </div>
-    <div 
-        className={`sidebar-item ${selectedTab === 'texer' ? 'active' : ''}`} 
-        onClick={() => handleTabClick('texer')}
-    >
-        <FitnessCenterIcon style={{fontSize:25}}/>
-    </div>
-      </div>
 
-      
-        {selectedTab === "texer" && <TrainerExercise />}
-        {selectedTab === "tdiet" && 
-        <main className="trainer-main-content"> 
-          <h3 className="trainer-title">Trainer's Diet Suggestions</h3>
+      <main className="trainer-main-content">
+        <h3 className="trainer-title">Trainer's Exercise Suggestions</h3>
         <div className="search-container">
           <input
             type="text"
@@ -107,26 +78,21 @@ function TrainerDiet() {
               <div className='trainer-user-details'>
                 <div>
                   <p className="user-age">Age: {user.age}</p>
-                  <p className="fitness-level">BMI: {user.bmi}</p>
+                  <p className="fitness-level">Level: {user.bmi}</p>
                 </div>
                 <div>
                   <p className="user-age">Age: {user.age}</p>
-                  <p className="fitness-level">BMI: {user.bmi}</p>
+                  <p className="fitness-level">Level: {user.bmi}</p>
                 </div>
               </div>
               </div></div>              
               <button className="suggest-button" onClick={() => togglePopup(user)}>
-                Suggest Diet
+                Suggest Exercise
               </button>
             </div>
           ))}
         </div>
-          </main>
-        }
-
-        
-      
-      {isPopupVisible && (
+        {isPopupVisible && (
           <div className={`tpopup-container ${isPopupVisible ? 'show' : 'hide'}`}>
             <div className="tpopup-content">
               <button className="tclose-button" onClick={() => setIsPopupVisible(false)}>
@@ -135,7 +101,7 @@ function TrainerDiet() {
               <h3 style={{fontSize:23,marginBottom:30}}>Diet Suggestions for {currentUser?.name}</h3>
               <form onSubmit={handleSubmit}>
                 <div className="dropdown-group">
-                  <label htmlFor="protein">Protein</label>
+                  <label htmlFor="protein">Shoulder & Legs</label>
                   <select name="protein" value={dietDetails.protein} onChange={handleChange} required>
                     <option value="">Select amount</option>
                     <option value="Low">Low</option>
@@ -144,7 +110,7 @@ function TrainerDiet() {
                   </select>
                 </div>
                 <div className="dropdown-group">
-                  <label htmlFor="fats">Fats</label>
+                  <label htmlFor="fats">Chest & Triceps</label>
                   <select name="fats" value={dietDetails.fats} onChange={handleChange} required>
                     <option value="">Select amount</option>
                     <option value="Low">Low</option>
@@ -153,17 +119,8 @@ function TrainerDiet() {
                   </select>
                 </div>
                 <div className="dropdown-group">
-                  <label htmlFor="vitamins">Vitamins</label>
+                  <label htmlFor="vitamins">Back & Biceps</label>
                   <select name="vitamins" value={dietDetails.vitamins} onChange={handleChange} required>
-                    <option value="">Select amount</option>
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                  </select>
-                </div>
-                <div className="dropdown-group">
-                  <label htmlFor="carbohydrates">Carbohydrates</label>
-                  <select name="carbohydrates" value={dietDetails.carbohydrates} onChange={handleChange} required>
                     <option value="">Select amount</option>
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
@@ -172,7 +129,7 @@ function TrainerDiet() {
                 </div>
                 <textarea
                   name="suggestions"
-                  placeholder="Additional diet suggestions..."
+                  placeholder="Additional workout suggestions..."
                   value={dietDetails.suggestions}
                   onChange={handleChange}
                   required
@@ -182,8 +139,10 @@ function TrainerDiet() {
             </div>
           </div>
         )}
-    </div>
+        
+      </main>
+
   );
 }
 
-export default TrainerDiet;
+export default TrainerExercise;
