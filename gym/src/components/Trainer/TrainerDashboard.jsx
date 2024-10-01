@@ -121,14 +121,14 @@ const TrainerDashboard = () => {
           </button></Link>
         </div>
 
-        <div className="dashboard-card">
+        <Link to="/trainersession" className="dashboard-card">
           <h6>Upcoming Online Sessions</h6>
           <ul className="dashboard-list">
             {['Yoga Session - 10 AM', 'HIIT Session - 12 PM', 'Strength Training - 5 PM'].map((session, index) => (
               <li key={index} className="dashboard-list-item">{session}</li>
             ))}
           </ul>
-        </div>
+        </Link>
 
         <Link to="/client-management" className="dashboard-card feed" style={{textDecoration:"none"}}>
           <h6>Client Management</h6>

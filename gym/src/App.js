@@ -10,6 +10,7 @@ import TrainerDiet from "./components/Trainer/TrainerDiet";
 import OnlineSession from "./components/Main/OnlineSession";
 import Exercise from "./components/Main/ExerciseProgressTracking";
 import TrainerAttendance from "./components/Trainer/TrainerAttendance";
+import TrainerSessionManagement from "./components/Trainer/TrainerSessionManagement";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         <Route path="/trainerdashboard" element={<TrainerDashboard />}/>
         <Route path="/trainerdiet" element={<TrainerDiet />}/>
         <Route path="/trainerattendance" element={<TrainerAttendance />}/>
+        <Route path="/trainersession" element={<TrainerSessionManagement />}/>
+
       </Routes>
     </BrowserRouter>
   );
